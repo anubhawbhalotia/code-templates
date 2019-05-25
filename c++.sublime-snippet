@@ -6,15 +6,14 @@ ${1:}#include <ext/pb_ds/assoc_container.hpp>
 #include <bits/stdc++.h>
 using namespace __gnu_pbds;
 using namespace std;
-typedef long l;
 typedef vector<int> vi;
-typedef vector<l> vl;
+typedef vector<long> vl;
 typedef pair<int,int> pi;
-typedef pair<l,l> pl;
+typedef pair<long,long> pl;
 typedef set<int> si;
-typedef set<l> sl;
+typedef set<long> sl;
 typedef multiset<int> msi;
-typedef multiset<l> msl;
+typedef multiset<long> msl;
 template <typename T>
 using indexed_set = tree<T, null_type, less<T>, 
 	rb_tree_tag, tree_order_statistics_node_update>;  
@@ -30,11 +29,11 @@ using indexed_set = tree<T, null_type, less<T>,
 #define beg(x) x.begin()
 #define en(x) x.end()
 #define all(v) beg(v), en(v)
-#define f(i,s,n) for(l i=s;i<n;i++)
-#define fe(i,s,n) for(l i=s;i<=n;i++)
-#define fr(i,s,n) for(l i=s;i>n;i--)
-#define fre(i,s,n) for(l i=s;i>=n;i--)
-const l MOD = 998244353;
+#define f(i,s,n) for(long i=s;i<n;i++)
+#define fe(i,s,n) for(long i=s;i<=n;i++)
+#define fr(i,s,n) for(long i=s;i>n;i--)
+#define fre(i,s,n) for(long i=s;i>=n;i--)
+const long MOD = 998244353;
 int main()
 {
     ios_base::sync_with_stdio(false); 
