@@ -8,13 +8,15 @@ using namespace __gnu_pbds;
 using namespace std;
 typedef long long ll;
 typedef vector<int> vi;
-typedef vector<ll> vl;
-typedef pair<int,int> pi;
-typedef pair<ll,ll> pl;
+typedef vector<long long> vl;
+typedef pair<int,int> pii;
+typedef pair<long long ,long long> pll;
 typedef set<int> si;
-typedef set<ll> sl;
+typedef set<long long> sl;
+typedef unordered_set <int> usi;
+typedef unordered_set <long long> usl;
 typedef multiset<int> msi;
-typedef multiset<ll> msl;
+typedef multiset<long long> msl;
 template <typename T>
 using indexed_set = tree<T, null_type, less<T>, 
 	rb_tree_tag, tree_order_statistics_node_update>;  
@@ -29,7 +31,7 @@ using indexed_set = tree<T, null_type, less<T>,
 #define ub upper_bound
 #define beg(x) x.begin()
 #define en(x) x.end()
-#define all(v) beg(v), en(v)
+#define all(x) x.begin(), x.end()
 #define f(i,s,n) for(int i=s;i<n;i++)
 #define fe(i,s,n) for(int i=s;i<=n;i++)
 #define fr(i,s,n) for(int i=s;i>n;i--)
@@ -49,7 +51,7 @@ auto operator+(const pair<T,U> & l, pair<V,W> & r)
 } 
 void solution(int t)
 {
-	
+	$0
 }
 void testCase()
 {
