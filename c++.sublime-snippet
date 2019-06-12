@@ -9,6 +9,8 @@ using namespace std;
 typedef long long ll;
 typedef vector<int> vi;
 typedef vector<long long> vl;
+typedef vector<vector<int>> vvi;
+typedef vector<vector<long long>> vvl;
 typedef pair<int,int> pii;
 typedef pair<long long ,long long> pll;
 typedef set<int> si;
@@ -48,7 +50,8 @@ auto operator+(const pair<T,U> & l, pair<V,W> & r)
 	-> pair<decltype(l.first+r.first),decltype(l.second+r.second)>                
 {                                                                                  
     return {l.first+r.first,l.second+r.second};                                    
-} 
+}
+template <typename T> T gcd(T a, T b) {return b == 0 ? a : gcd(b, a % b);}   
 void solution(int t)
 {
 	$0
