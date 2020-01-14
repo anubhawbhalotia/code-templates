@@ -1,6 +1,6 @@
 <snippet>
 	<content><![CDATA[
-${1:}#include <ext/pb_ds/assoc_container.hpp> 
+#include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp>  
 #include <functional>
 #include <bits/stdc++.h>
@@ -11,8 +11,8 @@ typedef vector<int> vi;
 typedef vector<long long> vl;
 typedef vector<vector<int>> vvi;
 typedef vector<vector<long long>> vvl;
-typedef pair<int,int> pii;
-typedef pair<long long ,long long> pll;
+typedef pair<int,int> pt;
+typedef pair<long long ,long long> ptl;
 typedef set<int> si;
 typedef set<long long> sl;
 typedef unordered_set <int> usi;
@@ -25,8 +25,8 @@ using indexed_set = tree<T, null_type, less<T>,
 // order_of_key: The number of items in a set that are strictly smaller than k
 // find_by_order: It returns an iterator to the ith largest element
 //Anubhaw Bhalotia https://github.com/anubhawbhalotia
-#define fi first
-#define se second
+#define x first
+#define y second
 #define mp make_pair
 #define pb push_back
 #define lb lower_bound
@@ -54,7 +54,7 @@ auto operator+(const pair<T,U> & l, pair<V,W> & r)
 template <typename T> T gcd(T a, T b) {return b == 0 ? a : gcd(b, a % b);}   
 void solution(int t)
 {
-	$0
+
 }
 void testCase()
 {
@@ -70,10 +70,10 @@ int main()
     ios_base::sync_with_stdio(false); 
     cin.tie(NULL);
     testCase();
-}  ${2:}
+}   
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>c++</tabTrigger> 
+	<tabTrigger>c++</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<!-- <scope>source.python</scope> -->
 </snippet>
