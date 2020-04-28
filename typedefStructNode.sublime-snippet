@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+typedef struct node
+{
+	int a;	// value at vertex
+	pt p;	// {index of parent, weight between this and parent}
+	vpt c;	// {index of child, weight between this and child}
+	node()
+	{
+		a = 0;
+		p = {-1, 0};
+	}
+}node;
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>typedefStructNode</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
