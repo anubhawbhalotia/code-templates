@@ -7,20 +7,28 @@
 using namespace __gnu_pbds;
 using namespace std;
 typedef long long ll;
-typedef vector<bool> vb;
-typedef vector<vector<bool>> vvb;
-typedef vector<int> vi;
-typedef vector<vector<int>> vvi;
-typedef vector<long long> vl;
-typedef vector<vector<long long>> vvl;
 typedef pair<int,int> pt;
 typedef pair<long long ,long long> ptl;
+typedef vector<bool> vb;
+typedef vector<vector<bool>> vvb;
+typedef vector<vector<vector<bool>>> vvvb;
+typedef vector<int> vi;
+typedef vector<vector<int>> vvi;
+typedef vector<vector<vector<int>>> vvvi;
+typedef vector<long long> vl;
+typedef vector<vector<long long>> vvl;
+typedef vector<vector<vector<long long>>> vvvl;
+typedef vector<pair<int, int>> vpt;
+typedef vector<pair<long long, long long>> vptl;
+typedef vector<string> vs;
 typedef set<int> si;
 typedef set<long long> sl;
 typedef unordered_set <int> usi;
 typedef unordered_set <long long> usl;
 typedef multiset<int> msi;
 typedef multiset<long long> msl;
+typedef map<int, int> mi;
+typedef map<long long, long long> ml;
 template <typename T>
 using indexed_set = tree<T, null_type, less<T>, 
 	rb_tree_tag, tree_order_statistics_node_update>;  
@@ -40,22 +48,20 @@ using indexed_set = tree<T, null_type, less<T>,
 #define fe(i,s,n) for(int i=s;i<=n;i++)
 #define fr(i,s,n) for(int i=s;i>n;i--)
 #define fre(i,s,n) for(int i=s;i>=n;i--)
-const int MOD = 998244353;
-template <typename T> T gcd(T a, T b) {return b == 0 ? a : gcd(b, a % b);}  
-int extendedEuclid(int a, int b, int *x, int *y){if(a == 0){*x = 0;*y = 1;
-	return b;}int x1, y1;int gcd = extendedEuclid(b % a, a, &x1, &y1);
-	*x = y1 - (b/a) * x1;*y = x1;return gcd;}
-void solution(int t)
+const int MOD = 998244353;  
+int solution(int tc)
 {
-
+	$1
+	return 1;
 }
 void testCase()
 {
-	int t = 1;
-	// cin>>t;
-	f(i, 0, t)
+	int tc = 1;
+	// cin>>tc;
+	f(i, 0, tc)
 	{
 		solution(i + 1);
+		// cout<<"Case #"<<i + 1<<": "<<solution(i + 1)<<endl;
 	}
 }
 int main()
