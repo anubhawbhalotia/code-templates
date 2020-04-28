@@ -1,0 +1,36 @@
+<snippet>
+	<content><![CDATA[
+class MstKruskal
+{
+private:
+	vector<pair<int, pt>> mstEdges;	// {weight, {vertex 1, vertex 2}}
+	int n;	// max number of nodes in the tree
+	Dsu a;	// include a DSU class in the file
+public:
+	MstKruskal(int z)
+	{
+		n = z;
+		a.build(n);
+	}
+	vector<pair<int, pt>> buildMst(vector<pair<int, pt>> &e)	
+	{
+		// returns edges included in mst along with their weights
+		// {weight, {vertex 1, vertex 2}}
+		sort(all(e));
+		for(auto i : e)
+		{
+			if(a.isSameSet(i.Y.X, i.Y.Y) == false)
+			{
+				a.merge(i.Y.X, i.Y.Y);
+				mstEdges.pb(i);
+			}
+		}
+		return mstEdges;
+	}
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>MstKruskal</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
