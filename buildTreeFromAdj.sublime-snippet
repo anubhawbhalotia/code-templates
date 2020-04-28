@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+int buildTreeFromAdj(vector<node> &tree, vector<vpt> &adj, int root)
+{
+	for(auto i : adj[root])
+	{
+		if(i.X != tree[root].p.X)
+		{
+			tree[i.X].p = {root, i.Y};
+			tree[root].c.pb(i);
+			buildTreeFromAdj(tree, adj, i.X);
+		}
+	}
+	return 1;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>buildTreeFromAdj</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
