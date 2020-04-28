@@ -46,6 +46,8 @@ public:
 	{
 		if(isAncestor(x, y))
 			return x;
+		if(isAncestor(y, x))
+			return y;
 		int l = 0, r = 31;
 		while(l < r)
 		{
