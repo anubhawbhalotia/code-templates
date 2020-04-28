@@ -1,0 +1,47 @@
+<snippet>
+	<content><![CDATA[
+class Dsu
+{
+private:
+	vi a; 
+	int findRoot(int x)
+	{
+		vi temp;
+		while(a[x] != x)
+		{
+			temp.pb(x);
+			x = a[x];
+		}
+		for(auto i : temp)
+		{
+			a[i] = x;
+		}
+		return x;
+	}
+public:
+	int build(int n)
+	{
+		a.resize(n);
+		f(i, 0, n)
+		{
+			a[i] = i;
+		}
+		return 1;
+	}
+	int merge(int x, int y)
+	{
+		int temp = findRoot(y);
+		a[findRoot(x)] = findRoot(y);
+		return temp;
+	}
+	bool isSameSet(int x, int y)
+	{
+		return findRoot(x) == findRoot(y);
+	}
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Dsu</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
