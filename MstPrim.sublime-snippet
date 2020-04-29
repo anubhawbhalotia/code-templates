@@ -1,0 +1,70 @@
+<snippet>
+	<content><![CDATA[
+class MstPrim
+{
+private:
+	vector<pair<int, pt>> mstEdges;
+	int n;
+public:
+	MstPrim(int z)
+	{
+		n = z;
+	}
+	vector<pair<int, pt>> buildMst(vector<vpt> &adj)
+	{
+		// given adjacency list, return mst
+		// adj format => vcector of {node, weight}
+		set <pair<int, pt>> wt;
+		si flag;
+		map<pt, int> m;
+		int root = 0;
+		pair<int, pt> curr;
+		while(!wt.empty() || flag.empty() == 1)
+		{
+			if(wt.empty())
+				curr = {0, {root, -1}};
+			else
+			{
+				curr = *wt.begin();
+				wt.erase(wt.begin());
+			}
+			bool foundX = flag.find(curr.Y.X) != flag.end();
+			bool foundY = flag.find(curr.Y.Y) != flag.end();
+			if(foundX == 0 || foundY == 0)
+			{
+				root = (foundX == false) ? curr.Y.X : curr.Y.Y;
+				if(curr.Y.Y != -1)
+					mstEdges.pb(curr);
+				flag.insert(root);
+				for(auto i : adj[root])
+				{
+					if(m.find({min(root, i.X), max(root, i.X)}) == m.end())
+					{
+						m[{min(root, i.X), max(root, i.X)}] = INT_MAX;
+					}
+					int z = m[{min(root, i.X), max(root, i.X)}];
+					if(z > i.Y)
+					{
+						if(z != INT_MAX)
+							wt.erase({z, {min(root, i.X), max(root, i.X)}});
+						m[{min(root, i.X), max(root, i.X)}] = i.Y;
+						wt.insert({i.Y, {min(root, i.X), max(root, i.X)}});
+					}
+				}
+			}
+		}
+		return mstEdges;
+	}
+	vector<pair<int, pt>> buildMst(vector<pair<int, pt>> e)
+	{
+		// given edge list, return mst edge list
+		vector<vpt> adj = buildAdjFromEdgeList(e, n);
+		return buildMst(adj);
+	}
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>MstPrim</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
