@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+vector<vpt> buildAdjFromEdgeList(vector<pair<int, pt>> &e, int n)
+{
+	vector<vpt> adj(n);
+	for(auto i : e)
+	{
+		adj[i.Y.X].pb({i.Y.Y, i.X});
+		adj[i.Y.Y].pb({i.Y.X, i.X});
+	}
+	return adj;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>buildAdjFromEdgeList</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
