@@ -14,7 +14,7 @@ public:
 	vi calculateShortestDis(vector<vpt> &adj, int source, vector<mi> &t)
 	{
 		// input adjacency list
-		// return shortest distance between source and every vertex in the grapg
+		// return shortest distance between source and every vertex in the graph
 		vi vis(n, 0);
 		set <pt> notIncl;
 		shortestDis[source] = 0;
