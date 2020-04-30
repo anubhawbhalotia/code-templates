@@ -40,6 +40,10 @@ public:
 	{
 		return findRoot(x) == findRoot(y);
 	}
+	int getSet(int x)
+	{
+		return findRoot(x);
+	}
 };
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
