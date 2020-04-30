@@ -4,6 +4,7 @@ class Dsu
 {
 private:
 	vi a; 
+	int n;
 	int findRoot(int x)
 	{
 		vi temp;
@@ -19,8 +20,9 @@ private:
 		return x;
 	}
 public:
-	int build(int n)
+	int build(int z)
 	{
+		n = z;
 		a.resize(n);
 		f(i, 0, n)
 		{
