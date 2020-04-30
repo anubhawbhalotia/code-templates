@@ -1,0 +1,54 @@
+<snippet>
+	<content><![CDATA[
+class Dijkstra
+{
+private:
+	vi shortestDis;
+	int n;	//n => number of nodes in the graph
+public:
+	Dijkstra(int z)
+	{
+		n = z;
+		shortestDis.resize(n, 2e9);
+	}
+	vi calculateShortestDis(vector<vpt> &adj, int source, vector<mi> &t)
+	{
+		// input adjacency list
+		// return shortest distance between source and every vertex in the grapg
+		vi vis(n, 0);
+		set <pt> notIncl;
+		shortestDis[source] = 0;
+		int weight;
+		f(i, 0, n)
+		{
+			notIncl.insert({shortestDis[i], i});
+		}
+		pt first;
+		while(!notIncl.empty())
+		{
+			first = *(notIncl.begin());
+			vis[first.Y] = 1;
+			notIncl.erase(notIncl.begin());
+			for(auto i : adj[first.Y])
+			{
+				if(vis[i.X] == 0)
+				{
+					weight = i.Y + shortestDis[first.Y];
+					if(weight < shortestDis[i.X])
+					{
+						notIncl.erase({shortestDis[i.X], i.X});
+						shortestDis[i.X] = weight;
+						notIncl.insert({weight, i.X});
+					}
+				}
+			}
+		}
+		return shortestDis;
+	}
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Dijkstra</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
