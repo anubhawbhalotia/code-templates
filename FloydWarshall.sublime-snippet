@@ -1,0 +1,44 @@
+<snippet>
+	<content><![CDATA[
+class FloydWarshall
+{
+private:
+	vvi shortestDis;
+	int n;
+public:
+	FloydWarshall(int z)
+	{
+		n = z;
+		shortestDis.resize(n, vi(n, 1e6));
+	}
+	int calculateShortestDis(vvi &w)
+	{
+		shortestDis = w;
+		f(i, 0, n)
+		{
+			shortestDis[i][i] = 0;
+		}
+		f(k, 0, n)
+		{
+			f(i, 0, n)
+			{
+				f(j, 0, n)
+				{
+					shortestDis[i][j] = min(shortestDis[i][j], 
+						shortestDis[i][k] + shortestDis[k][j]);
+				}
+			}
+		}
+		return 1;
+	}
+	int getDis(int x, int y)
+	{
+		return shortestDis[x][y];
+	}
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>FloydWarshall</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
