@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[
+vi getDivisors(int n)
+{
+	vi ans;
+	fe(i, 1, (int)sqrt(n))
+	{
+		if(n % i == 0)
+		{
+			ans.pb(i);
+			if(i * i != n)
+				ans.pb(n / i);
+		}
+	}
+	return ans;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>getDivisors</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

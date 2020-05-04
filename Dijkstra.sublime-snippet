@@ -11,7 +11,7 @@ public:
 		n = z;
 		shortestDis.resize(n, 2e9);
 	}
-	vi calculateShortestDis(vector<vpt> &adj, int source, vector<mi> &t)
+	vi calculateShortestDis(vector<vpt> &adj, int source)
 	{
 		// input adjacency list
 		// return shortest distance between source and every vertex in the graph
