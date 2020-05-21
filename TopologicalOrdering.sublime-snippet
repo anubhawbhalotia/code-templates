@@ -1,0 +1,56 @@
+<snippet>
+	<content><![CDATA[
+class TopologicalOrdering
+{
+private:
+	int dfs(int currNode, int &marker, vector<vpt> &adj, vi &flag, stack<int> &s)
+	{
+		flag[currNode] = marker;
+		for(auto i : adj[currNode])
+		{
+			if(flag[i.X] == 0)
+			{
+				if(dfs(i.X, marker, adj, flag, s) == 0)
+					return 0;
+			}
+			else if(flag[i.X] == marker)
+				return 0;
+		}
+		flag[currNode] = 1;
+		s.push(currNode);
+		return 1;
+	}
+public:
+	vi getTopologicalOrderingFromAdj(vector<vpt> &adj)
+	{
+		// given adjacency list, returns topological order 
+		// returns empty vector if not DAG
+		int n = adj.size();
+		int marker = 1;
+		vi ans;
+		vi flag(n, 0);
+		stack <int> s;
+		f(i, 0, n)
+		{
+			if(flag[i] == 0)
+			{
+				if(dfs(i, ++marker, adj, flag, s) == 0)
+				{
+					return ans;
+				}
+			}
+		}
+		while(!s.empty())
+		{
+			ans.pb(s.top());
+			s.pop();
+		}
+		return ans;
+	}
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>TopologicalOrdering</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
