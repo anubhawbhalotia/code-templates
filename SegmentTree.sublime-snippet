@@ -1,0 +1,114 @@
+<snippet>
+	<content><![CDATA[
+class SegmentTree
+{
+	// a generalised structure of segtree
+private:
+	int n;	//number of elements in original array
+	vector<T> tree;	// array to store segment tree
+	string type; // determines the segTree type
+	T defVal;	// value to be returned when the range of current node lies completely outside the query range
+	map <string, int> m; // mapping from segTree type to int number
+	T operateLeftRight(T l, T r)	
+	{
+		// returns vaue after calcualtion of results from 2 nodes
+		switch(m[type])
+		{
+			case 0:
+				return (l + r);
+			case 1:
+				return max(l, r);
+			case 2:
+				return min(l, r);
+			default:
+				return (l + r);
+		}
+	}
+	T buildTraverse(vector<T> &a, int node, int nodeLeft, int nodeRight)
+	{
+		// utility function for build() function
+		if(nodeLeft == nodeRight)
+		{
+			tree[node] = a[nodeLeft];
+			return tree[node];
+		}
+		T l = buildTraverse(a, node*2+1, nodeLeft, (nodeLeft + nodeRight) / 2);
+		T r = buildTraverse(a, node*2+2, (nodeLeft + nodeRight) / 2 + 1, nodeRight);
+		tree[node] = operateLeftRight(l, r);
+		return tree[node];
+	}
+	T queryTraverse(int node, int nodeLeft, int nodeRight, int st, int en)
+	{
+		// utility function for query()
+		if(st <= nodeLeft && en >= nodeRight)
+			return tree[node];
+		if(st > nodeRight || en < nodeLeft)
+			return defVal;
+		T l = queryTraverse(node*2+1, nodeLeft, (nodeLeft + nodeRight) / 2, st, en);
+		T r = queryTraverse(node*2+2, (nodeLeft + nodeRight) / 2 + 1, nodeRight, st, en);
+		return operateLeftRight(l, r);
+	}
+	T updateTraverse(int node, int nodeLeft, int nodeRight, int index, T val)
+	{
+		// utility function for update
+		if(index < nodeLeft || index > nodeRight)
+			return tree[node];
+		if(nodeLeft == nodeRight)
+		{
+			tree[node] = val;
+			return tree[node];
+		}
+		T l = updateTraverse(node*2+1, nodeLeft, (nodeLeft + nodeRight) / 2, index, val);
+		T r = updateTraverse(node*2+2, (nodeLeft + nodeRight) / 2 + 1, nodeRight, index, val);
+		tree[node] = operateLeftRight(l, r);
+		return tree[node];
+	}
+public:
+	SegmentTree(string s)
+	{
+		type = s;
+		m["SUM"] = 0;
+		m["MAX"] = 1;
+		m["MIN"] = 2;
+		switch(m[type])
+		{
+			case 0:
+				defVal = 0;
+				break;
+			case 1:
+				defVal = INT_MIN;
+				break;
+			case 2:
+				defVal = INT_MAX;
+				break;
+		}
+	}
+	int build(vector<T> &a)
+	{
+		// builds a seg tree of type "type"
+		n = a.size();
+		tree.resize(5 * n);
+		buildTraverse(a, 0, 0, n - 1);
+		return 1;
+	}
+	T query(int st, int en)
+	{
+		// query  range => [st, en] (inclusive)
+		if(st > en)
+			return defVal;
+		return queryTraverse(0, 0, n - 1, st, en);
+	}
+	int update(int index, T val)
+	{
+		// update a particular index with a val
+		// not for range update
+		updateTraverse(0, 0, n - 1, index, val);
+		return 1;
+	}
+};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>SegmentTree</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
