@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+int modExp(int b, int e)
+{
+	ll ans = 1;
+	while(e)
+	{
+		int x = 1;
+		ll z = b;
+		while(x * 2 <= e)
+		{
+			z = (z * z) % MOD;
+			x *= 2;
+		}
+		e -= x;
+		ans = (ans * z) % MOD;
+	}
+	return ans;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>modExp</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
