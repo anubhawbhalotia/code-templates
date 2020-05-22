@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+string bitwiseGetDecToBin(ll a)
+{
+	string s = "";
+	while(a)
+	{
+		s += (a % 2 == 1) ? '1' : '0';
+		a /= 2;
+	}
+	return s;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bitwiseGetDecToBin</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
