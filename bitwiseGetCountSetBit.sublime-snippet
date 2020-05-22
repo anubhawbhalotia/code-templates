@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+int bitwiseGetCountSetBit(int a)
+{
+	int c = 0;
+	while(a)
+	{
+		if(a % 2 == 1)
+			c++;
+		a /= 2;
+	}
+	return c;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bitwiseGetCountSetBit</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
