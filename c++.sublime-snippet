@@ -39,6 +39,7 @@ using indexed_set = tree<T, null_type, less<T>,
 #define Y second
 #define mp make_pair
 #define pb push_back
+#define eb emplace_back
 #define lb lower_bound
 #define ub upper_bound
 #define beg(x) x.begin()
